@@ -26,7 +26,7 @@ const FormGroups = styled.div`
         padding: 1rem 0rem 3rem 0rem;
         height: 36rem;
   }
-}
+
 
     label{
         display: flex;
