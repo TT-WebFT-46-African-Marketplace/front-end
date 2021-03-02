@@ -5,11 +5,27 @@ const FormGroups = styled.div`
     display: flex;
     flex-flow: row wrap;
     background: rgba(0, 0, 0, 0.5);
-    height: 100%;
+    height: 25rem;
     padding: 3rem 3rem 9rem 3rem;
-    margin: 50px 20rem;
+    margin: 0 30rem;
     border-radius: 5%;
     font-family: "Open Sans", Helvetica, sans-serif;
+
+    @media (max-width: 1425px) {
+        padding: 3rem 3rem 2rem 3rem;
+        height: 35rem;
+        margin: 0 25rem;
+  }
+
+    @media (max-width: 1400px) {
+        padding: 3rem 3rem 2rem 3rem;
+        height: 35rem;
+  }
+
+    @media (max-width: 1200px) {
+        padding: 1rem 0rem 3rem 0rem;
+        height: 36rem;
+  }
 }
 
     label{
