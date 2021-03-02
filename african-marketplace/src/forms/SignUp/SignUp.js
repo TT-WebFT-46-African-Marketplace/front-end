@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import SignUpForm from './SignUpForm'
-import styled, {keyframes} from 'styled-components';
+import styled from 'styled-components';
 import axios from 'axios';
 import * as yup from 'yup';
 import registerSchema from './validation/RegisterSchema';
@@ -104,7 +104,7 @@ const SignUp = () => {
           axios
           .get('https://reqres.in/api/users')
           .then(res => {
-            // console.log(res.data.data)
+             console.log(res.data.data)
             setUsers(res.data)
           })
           .catch(err => {
@@ -119,6 +119,7 @@ const SignUp = () => {
         .post('https://reqres.in/api/users', newUser)
         .then(res => {
           setUsers([...users, res.data])
+          debugger;
           console.log(res.data)
         })
         .catch(err => {
