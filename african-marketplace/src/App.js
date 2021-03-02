@@ -7,23 +7,24 @@ import Login from "./forms/Login";
 import SignUp from "./forms/SignUp";
 import Dashboard from "./components/Dashboard";
 import ItemForm from "./forms/ItemForm";
+import UserInfo from "./components/UserInfo";
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <Route exact path="/" component={Home} />
+        <Route exact path="/home" component={Home} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/sign-up" component={SignUp} />
         <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/item-form" component={ItemForm} />
+        <Route exact path="/user" component={UserInfo} />
       </Router>
     </div>
   );
 }
 //still need to add privateRoute
 const mapStateToProps = (state) => {
-  console.log(state);
   return state;
 };
 
