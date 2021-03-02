@@ -1,0 +1,91 @@
+body{
+    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),
+    url('/src/images/ghnw20161124-084928-823.jpg');
+    background-size:cover;
+    background-position:center;
+    background-repeat: no-repeat;
+}
+h1{
+    color: white;
+}
+.formContainer{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border:2px solid black;
+    border-radius: 50px;
+    height: 27rem;
+    width: 30rem;
+    background-color: #282c34;
+    background: rgba(0,0,0,0.5);
+}
+.header{
+    margin-top: -20px;
+}
+.errorsContainer{
+    color: red;
+    font-size: 1rem;
+    margin-top: 15px;
+}
+.location{
+    margin-bottom: 10px;
+
+}
+.itemName{
+    margin-bottom: 10px;
+}
+.description{
+    margin-bottom: 10px;
+}
+.price{
+    margin-bottom: 10px;
+}
+.errorLocation{
+    margin-bottom: 1px;
+    display: inline-block;
+    text-shadow:
+    -1px -1px 0 black,
+     0   -1px 0 black,
+     1px -1px 0 black,
+     1px  0   0 black,
+     1px  1px 0 black,
+     0    1px 0 black,
+    -1px  1px 0 black,
+    -1px  0   0 black;
+}
+.errorItemName{
+    margin-bottom: 1px;
+    text-shadow:
+    -1px -1px 0 black,
+     0   -1px 0 black,
+     1px -1px 0 black,
+     1px  0   0 black,
+     1px  1px 0 black,
+     0    1px 0 black,
+    -1px  1px 0 black,
+    -1px  0   0 black;
+}
+.errorDescription{
+    margin-bottom: 1px;
+    text-shadow:
+    -1px -1px 0 black,
+     0   -1px 0 black,
+     1px -1px 0 black,
+     1px  0   0 black,
+     1px  1px 0 black,
+     0    1px 0 black,
+    -1px  1px 0 black,
+    -1px  0   0 black;
+}
+.errorPrice{
+    text-shadow:
+    -1px -1px 0 black,
+     0   -1px 0 black,
+     1px -1px 0 black,
+     1px  0   0 black,
+     1px  1px 0 black,
+     0    1px 0 black,
+    -1px  1px 0 black,
+    -1px  0   0 black;
+}
