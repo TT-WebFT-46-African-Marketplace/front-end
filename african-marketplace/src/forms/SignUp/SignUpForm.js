@@ -9,6 +9,8 @@ const FormGroups = styled.div`
     padding: 3rem 3rem 9rem 3rem;
     margin: 50px 20rem;
     border-radius: 5%;
+    font-family: "Open Sans", Helvetica, sans-serif;
+}
 
     label{
         display: flex;

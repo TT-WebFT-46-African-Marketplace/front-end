@@ -1,10 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import SignUpForm from './SignUpForm'
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 import axios from 'axios';
 import * as yup from 'yup';
 import registerSchema from './validation/RegisterSchema';
-import './SignUp.css';
+
+const up = keyframes`
+  from {
+    transform: translateY(200px);
+  }
+  to {
+    transform: translateY(0)
+  }
+  `;
 
 const Background = styled.div`
     background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url('https://images.pexels.com/photos/1128678/pexels-photo-1128678.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
@@ -16,6 +24,9 @@ const Background = styled.div`
 const FormContainer = styled.div`
     text-align: center;
     height: 750px;
+    font-family: "Open Sans", Helvetica, sans-serif;
+    animation: ${up} 2s ease-in-out;
+    
     
 
     h1{
