@@ -1,48 +1,137 @@
 import React, { useState, useEffect } from 'react';
 import SignUpForm from './SignUpForm'
 import styled from 'styled-components';
+import axios from 'axios';
+import * as yup from 'yup';
+import registerSchema from './validation/RegisterSchema';
+import './SignUp.css';
+
+const Background = styled.div`
+    background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url('https://images.pexels.com/photos/1128678/pexels-photo-1128678.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+`
 
 const FormContainer = styled.div`
     text-align: center;
-    border:1px solid blue;
-    background-color: blue;
-    height: 800px;
+    height: 750px;
     
 
     h1{
         font-size: 4rem;
+        color: #fff;
     }
 `
-
-
 
 const SignUp = () => {
 
     const initialFormValues = {
-        first_Name: '',
-        last_Name: '',
-        user_Name: '',
+        first_name: '',
+        last_name: '',
+        user_name: '',
+        email: '',
         password: '',
-        confirm_Password: '',
-        terms: false
+        confirm_password: '',
+        terms: false,
     }
 
-    const users = []
+    const initialErrors = {
+        first_name: '',
+        last_name: '',
+        user_name: '',
+        email: '',
+        password: '',
+        confirm_password: '',
+    }
 
-    const {newUser, setNewUser} = useState(users)
+    const allUsers = []
 
-    const {formValues, setFormValues} = useState(initialFormValues)
+    const initialDisabled = true
 
-    const change = (name, value) => {
-        setFormValues({...formValues, [name]:value
+    const [users, setUsers] = useState(allUsers)
+
+    const [formValues, setFormValues] = useState(initialFormValues)
+
+    const[errors, setErrors] = useState(initialErrors)
+
+    const [disabled, setDisabled] = useState(initialDisabled)
+
+    const inputChange = (name, value) => {
+
+        yup.reach(registerSchema, name)
+      .validate(value)
+      .then(() => {
+        
+        setErrors({...errors, [name]: ''})
+      })
+      .catch(err => {
+        setErrors({...errors, [name]: err.errors[0]})
+      })
+
+        setFormValues({...formValues, [name]: value})
+    }
+
+    const registerSubmit = () => {
+        const newUser = {
+            first_name: formValues.first_name.trim(),
+            last_name: formValues.last_name.trim(),
+            user_name: formValues.user_name.trim(),
+            email: formValues.email.trim(),
+            password: formValues.password.trim(),
+            confirm_password: formValues.confirm_password.trim(),
+            terms: formValues.terms,
+        }
+
+        postNewUser(newUser)
+    }
+
+    useEffect(() => {
+        const getData = () => {
+          axios
+          .get('https://reqres.in/api/users')
+          .then(res => {
+            // console.log(res.data.data)
+            setUsers(res.data)
+          })
+          .catch(err => {
+            console.log(err)
+          })
+        }
+        getData()
+       }, [setUsers])
+    
+       const postNewUser = (newUser) => {
+        axios
+        .post('https://reqres.in/api/users', newUser)
+        .then(res => {
+          setUsers([...users, res.data])
+          console.log(res.data)
         })
-    }
+        .catch(err => {
+          console.log(err)
+        })
+        
+        setFormValues(initialFormValues)
+      }
+
+      useEffect(() => {
+        registerSchema.isValid(formValues).then(valid => setDisabled(!valid))
+      },[formValues])
+
 
     return (
+    <Background>
         <FormContainer className="form-container">
-     <h1>Sign-Up Form</h1>
-     <SignUpForm values={formValues} change={change}/>
-   </FormContainer>
+            <h1>Register Here</h1>
+            <SignUpForm 
+            values={formValues} 
+            change={inputChange}
+            submit={registerSubmit}
+            errors={errors}
+            disabled={disabled}/>
+        </FormContainer>
+   </Background>
     );
 };
 
