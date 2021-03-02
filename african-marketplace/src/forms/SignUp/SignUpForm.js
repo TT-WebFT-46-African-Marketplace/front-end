@@ -76,7 +76,7 @@ const SignUpForm = (props) => {
                 <input name='last_name' value={values.last_name} onChange={onChange} type='text' placeholder="Enter your last name"/>
             </label>
             <label>Username
-              <input name='user_name' value={values.user_name} onChange={onChange} type='text' placeholder="Enter your username name"/>
+              <input name='user_name' value={values.user_name} onChange={onChange} type='text' placeholder="Enter your username"/>
             </label>
             <label>Email
               <input name='email' value={values.email} onChange={onChange} type='text' placeholder="Enter your Email"/>
