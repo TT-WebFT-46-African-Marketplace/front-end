@@ -105,21 +105,20 @@ const SignUp = () => {
           .get('https://reqres.in/api/users')
           .then(res => {
              console.log(res.data.data)
-            setUsers(res.data)
+            setUsers(res.data.data)
           })
           .catch(err => {
             console.log(err)
           })
         }
         getData()
-       }, [setUsers])
+       }, [])
     
        const postNewUser = (newUser) => {
         axios
         .post('https://reqres.in/api/users', newUser)
         .then(res => {
           setUsers([...users, res.data])
-          debugger;
           console.log(res.data)
         })
         .catch(err => {
@@ -143,7 +142,8 @@ const SignUp = () => {
             change={inputChange}
             submit={registerSubmit}
             errors={errors}
-            disabled={disabled}/>
+            disabled={disabled}
+            />
         </FormContainer>
    </Background>
     );

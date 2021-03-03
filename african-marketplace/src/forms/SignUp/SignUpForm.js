@@ -7,7 +7,7 @@ const FormGroups = styled.div`
     background: rgba(0, 0, 0, 0.5);
     height: 25rem;
     padding: 3rem 3rem 9rem 3rem;
-    margin: 0 30rem;
+    margin: 1rem 30rem;
     border-radius: 5%;
     font-family: "Open Sans", Helvetica, sans-serif;
 
