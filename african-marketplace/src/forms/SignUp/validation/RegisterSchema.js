@@ -27,10 +27,11 @@ const registerSchema = yup.object().shape({
 
     confirm_password: yup.string()
         .trim()
-        .required('Password is required, please fill out.')
-        .min(8, 'Password must be 8 characters long'),
+        .oneOf([yup.ref('password')], 'Passwords must match'),
 
-    terms: yup.boolean(),
+    terms: yup.boolean()
+    .required('Terms needs to be checked.')
+    .oneOf([true], "The terms and conditions must be accepted."),
     
 
 })
