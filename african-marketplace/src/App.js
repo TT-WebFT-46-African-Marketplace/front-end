@@ -1,8 +1,7 @@
 import "./App.css";
 
 // import Login from './forms/Login/Login'
-import ItemForm from './forms/ItemForm/ItemForm'
-
+import ItemForm from "./forms/ItemForm/ItemForm";
 
 import Login from "./forms/Login/Login";
 
@@ -15,15 +14,9 @@ import Dashboard from "./components/Dashboard";
 
 import UserInfo from "./components/UserInfo";
 
-
 function App() {
   return (
     <div className="App">
-
-      <header className="App-header">
-      
-      </header>
-
       <Router>
         <Route exact path="/home" component={Home} />
         <Route exact path="/login" component={Login} />
@@ -32,7 +25,6 @@ function App() {
         <Route exact path="/item-form" component={ItemForm} />
         <Route exact path="/user" component={UserInfo} />
       </Router>
-
     </div>
   );
 }
