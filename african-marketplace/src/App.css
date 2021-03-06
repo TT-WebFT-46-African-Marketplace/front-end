@@ -166,11 +166,12 @@ table {
   width: 20%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .nav-links a {
   text-decoration: none;
-  color: white;
+  color: #e84c3d;
   font-weight: bold;
   /* margin-right: 8px; */
 }
@@ -198,6 +199,23 @@ table {
   margin: 0 auto;
   display: flex;
   justify-content: center;
+}
+.logout-btn {
+  display: flex;
+  align-items: center;
+  background-color: #282c34;
+  color: #e84c3d;
+  /* box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+  /* border: none; */
+  /* padding: 0.5% 1%; */
+  /* text-align: center; */
+  font-size: 16px;
+  margin: 4px 2px;
+  /* opacity: 0.6; */
+  transition: 0.3s;
+  /* display: inline-block; */
+  /* text-decoration: none; */
+  cursor: pointer;
 }
 
 /* .item-container h3 {

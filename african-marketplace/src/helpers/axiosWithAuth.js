@@ -2,12 +2,13 @@ import axios from "axios";
 
 export const axiosWithAuth = () => {
   const token = window.localStorage.getItem("token");
+  console.log("THis is token", token);
 
   return axios.create({
     headers: {
-      Authorization: token,
+      Authorization: `Bearer ${token}`,
     },
-    baseURL: "",
+    baseURL: "https://webft-46-african-marketplace.herokuapp.com",
   });
 };
 

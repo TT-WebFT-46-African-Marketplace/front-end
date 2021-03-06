@@ -3,9 +3,7 @@ import React from "react";
 import "./Item.css";
 
 const Item = (props) => {
-  const { name, marketLocation, price, description } = props.item;
-  //   console.log("NAME", name);
-  console.log("PROPS", props);
+  const { name, location, itemcost, description } = props.item;
 
   const handleEdit = () => {
     props.editItem();
@@ -17,8 +15,8 @@ const Item = (props) => {
       <div className="item-header">
         <div className="item-title-wrapper">
           <h2>{name}</h2>
-          <h3>{marketLocation}</h3>
-          <h4>${price}</h4>
+          <h3>From: {location}</h3>
+          <h4>${itemcost}</h4>
           <p>{description}</p>
         </div>
         <div className="item-button">
