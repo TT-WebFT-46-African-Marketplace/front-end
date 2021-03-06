@@ -2,138 +2,224 @@
 License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
- margin: 0;
- padding: 0;
- border: 0;
- font-size: 100%;
- font: inherit;
- vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
- display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
 body {
- line-height: 1;
+  line-height: 1;
 }
-ol, ul {
- list-style: none;
+ol,
+ul {
+  list-style: none;
 }
-blockquote, q {
- quotes: none;
+blockquote,
+q {
+  quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
- content: '';
- content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
 }
 table {
- border-collapse: collapse;
- border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
-body{
-    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),
-    url('/src/images/banner.jpg');
-    background-size:cover;
-    background-position:center;
-    background-repeat: no-repeat;
+body {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("/src/images/banner.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
-.textInput{
-    background-color: #282c34;
-    background: rgba(0,0,0,0.5);
-    border-radius: 100px;
-    color: black;
-    width: 600px;
-    height: 320px;
-    border:2px solid white;
+
+.textInput {
+  background-color: #282c34;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 100px;
+  color: black;
+  width: 600px;
+  height: 320px;
+  border: 2px solid white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.errors{
-    color: red;
-    font-size: 1rem;
-    margin-top: 15px;
+.errors {
+  color: red;
+  font-size: 1rem;
+  margin-top: 15px;
 }
-.formGroupInputs{
-    /* border:2px solid blue; */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.formGroupInputs {
+  /* border: 2px solid blue; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.username{
-    height: 80px;
-    width: 320px;
-    text-align: left;
-    border:2px solid white;
-    text-align: center;
-    margin-top: 25px;
-    /* color: white;  */
+.username {
+  height: 80px;
+  width: 320px;
+  text-align: left;
+  border: 2px solid white;
+  text-align: center;
+  margin-top: 25px;
+  /* color: white;  */
 }
-.usernameInput{
-   text-align: left;
-    
+.usernameInput {
+  text-align: left;
 }
-.username:hover{
-    font-weight: bolder;
+.username:hover {
+  font-weight: bolder;
 }
-.password{
-    height: 80px;
-    width: 320px;
-    text-align: left;
-    border:2px solid white;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    text-align: center;
-    color: white;
+.password {
+  height: 80px;
+  width: 320px;
+  text-align: left;
+  border: 2px solid white;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: white;
 }
-.passwordInput{
-    text-align: left;
+.passwordInput {
+  text-align: left;
 }
-.password:hover{
-    font-weight: bolder;
+.password:hover {
+  font-weight: bolder;
 }
-h1{
-    color: white;
-    font-size: 4rem;
-    margin-bottom: 20px;
+h1 {
+  color: white;
+  font-size: 4rem;
+  margin-bottom: 20px;
 }
-.signIn{
-    color: #ED4933;
+.signIn {
+  color: #ed4933;
 }
 /* The animation code */
 @keyframes example {
-    from {color: transparent;transform:translateX(50px)
-    }
-    to {color : white;transform:translateX(0)
-    }
+  from {
+    color: transparent;
+    transform: translateX(50px);
   }
-  
-  /* The element to apply the animation to */
-  .formGroupInputs {
+  to {
+    color: white;
+    transform: translateX(0);
+  }
+}
 
-    animation-name: example;
-    animation-duration: 3s;
-  }
-  .username{
-    animation-name: example;
-    animation-duration: 3s;
-    color: white;
-  }
-  .password{
-    animation-name: example;
-    animation-duration: 3s;
-    color: white;
-  }
-  
+/* The element to apply the animation to */
+.formGroupInputs {
+  animation-name: example;
+  animation-duration: 3s;
+}
+.username {
+  animation-name: example;
+  animation-duration: 3s;
+  color: white;
+}
+.password {
+  animation-name: example;
+  animation-duration: 3s;
+  color: white;
+}

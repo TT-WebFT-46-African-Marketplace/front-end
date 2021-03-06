@@ -1,4 +1,5 @@
 import { axiosWithAuth } from "../../helpers/axiosWithAuth";
+import axios from "axios";
 
 export const FETCH_ITEM_DATA_START = "FETCH_ITEM_DATA_START";
 export const FETCH_ITEM_DATA_SUCCESS = "FETCH_ITEM_DATA_SUCCESS";
@@ -12,35 +13,45 @@ export const EDIT_USER_FAIL = "EDIT_USER_FAIL";
 export const ITEM_EDIT = "ITEM_EDIT";
 export const ITEM_EDIT_FAIL = "ITEM_EDIT_FAIL";
 
-export const fetchItems = (id) => (dispatch) => {
-  dispatch({ type: FETCH_ITEM_DATA_START });
-  axiosWithAuth()
-    .get("/")
-    .then((res) => {
-      dispatch({ type: FETCH_ITEM_DATA_SUCCESS, payload: res.data });
-    })
-    .catch((err) => {
-      dispatch({ type: FETCH_ITEM_DATA_FAIL, payload: err.message });
-    });
+export const fetchItems = () => {
+  return (dispatch) => {
+    dispatch({ type: FETCH_ITEM_DATA_START });
+    console.log("Hello I am here");
+    axios
+      .get("https://webft-46-african-marketplace.herokuapp.com/items/items")
+      .then((res) => {
+        console.log("res in fetch items", res);
+        dispatch({ type: FETCH_ITEM_DATA_SUCCESS, payload: res.data });
+      })
+      .catch((err) => {
+        dispatch({ type: FETCH_ITEM_DATA_FAIL, payload: err.message });
+      });
+  };
 };
 
-export const addItem = (newItem, history, setFormValues, InitialFormValues) => (
-  dispatch
-) => {
-  axiosWithAuth()
-    .post("/", newItem)
-    .then((res) => {
-      dispatch({ type: ADD_ITEM, payload: res.data });
-      history.push("/dashboard");
-    })
-    .catch((err) => {
-      dispatch({ type: ADD_ITEM_FAIL, payload: err.message });
-    })
-    .finally(() => {
-      setFormValues(InitialFormValues);
-    });
+// No endpoint to add item
+// addItem function does not work right now
+export const addItem = (newItem, history) => {
+  console.log("hey!");
+  return (dispatch) => {
+    axios
+      .post(
+        "https://webft-46-african-marketplace.herokuapp.com/items/items",
+        newItem
+      )
+      .then((res) => {
+        console.log("RES", res);
+        dispatch({ type: ADD_ITEM, payload: res.data });
+        history.push("/dashboard");
+      })
+      .catch((err) => {
+        dispatch({ type: ADD_ITEM_FAIL, payload: err.message });
+      });
+  };
 };
 
+// No endpoint to delete item
+// deleteItem function does not work right now
 export const deleteItem = (id) => (dispatch) => {
   axiosWithAuth()
     .delete(`//${id}`)
@@ -52,6 +63,8 @@ export const deleteItem = (id) => (dispatch) => {
     });
 };
 
+// No endpoint to edit item
+// editItem function does not work right now
 export const editItem = (id, data) => (dispatch) => {
   axiosWithAuth()
     .put(`//${id}`, data)

@@ -1,15 +1,14 @@
 import React from "react";
 import { axiosWithAuth } from "./../helpers/axiosWithAuth";
-import { useHistory } from "react-router-dom";
+
+import "./UserInfo.css";
 
 const UserInfo = () => {
   const [userData, setUserData] = React.useState({});
 
-  const history = useHistory();
-
   const logout = () => {
     localStorage.clear("token");
-    history.push("/login");
+    // history.push("/login");
   };
 
   React.useEffect(() => {
@@ -24,15 +23,18 @@ const UserInfo = () => {
   }, []);
 
   return (
-    <div>
+    <div className="user-info">
       <h1>Hey, {userData.username}!</h1>
       <h3>{userData.plants}</h3>
       <p>Welcome! You now have access to see what everyone is posting!</p>
 
       <div>
-        <button type="button" onClick={logout}>
-          {" "}
-          Logout{" "}
+        <button
+          href="https://tender-brattain-6749f1.netlify.app/"
+          type="button"
+          onClick={logout}
+        >
+          Logout
         </button>
       </div>
     </div>
