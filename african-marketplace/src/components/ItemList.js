@@ -14,7 +14,7 @@ const ItemList = (props) => {
 
   useEffect(() => {
     fetchItems();
-  }, []);
+  }, [fetchItems]);
 
   const addNewItem = () => {
     history.push("/item-form");
